@@ -1,0 +1,502 @@
+/* =========================
+   GLOBAL
+========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+
+    min-height: 100vh;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    background: #f4efe3;
+    color: #222;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px;
+}
+
+
+/* =========================
+   MAIN CONTAINER
+========================= */
+
+.game-container {
+    width: min(900px, 100%);
+
+    text-align: center;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+header h1 {
+    margin: 0;
+
+    font-size: 46px;
+    letter-spacing: 5px;
+}
+
+header p {
+    margin-top: 6px;
+
+    color: #777;
+
+    font-size: 15px;
+    letter-spacing: 2px;
+}
+
+
+/* =========================
+   GAME LAYOUT
+========================= */
+
+.game {
+    margin-top: 40px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 80px;
+}
+
+
+/* =========================
+   HANGMAN AREA
+========================= */
+
+.hangman-container {
+    width: 300px;
+    height: 320px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gallows {
+    position: relative;
+
+    width: 240px;
+    height: 300px;
+}
+
+
+/* =========================
+   GALLOWS
+========================= */
+
+.beam {
+    position: absolute;
+
+    left: 45px;
+    top: 10px;
+
+    width: 145px;
+    height: 8px;
+
+    background: #222;
+}
+
+.pole {
+    position: absolute;
+
+    left: 45px;
+    top: 10px;
+
+    width: 8px;
+    height: 250px;
+
+    background: #222;
+}
+
+.base {
+    position: absolute;
+
+    left: 15px;
+    bottom: 15px;
+
+    width: 100px;
+    height: 8px;
+
+    background: #222;
+}
+
+.rope {
+    position: absolute;
+
+    left: 185px;
+    top: 10px;
+
+    width: 4px;
+    height: 40px;
+
+    background: #222;
+}
+
+
+/* =========================
+   HANGMAN BODY
+========================= */
+
+.head,
+.body,
+.arm,
+.leg {
+    position: absolute;
+
+    opacity: 0;
+
+    transition:
+        opacity 0.35s ease,
+        transform 0.35s ease;
+}
+
+
+/* Head */
+
+.head {
+    left: 170px;
+    top: 50px;
+
+    width: 38px;
+    height: 38px;
+
+    border: 4px solid #222;
+
+    border-radius: 50%;
+}
+
+
+/* Body */
+
+.body {
+    left: 187px;
+    top: 88px;
+
+    width: 4px;
+    height: 65px;
+
+    background: #222;
+}
+
+
+/* Arms */
+
+.arm {
+    top: 100px;
+
+    width: 4px;
+    height: 48px;
+
+    background: #222;
+}
+
+.left-arm {
+    left: 168px;
+
+    transform: rotate(45deg);
+}
+
+.right-arm {
+    left: 204px;
+
+    transform: rotate(-45deg);
+}
+
+
+/* Legs */
+
+.leg {
+    top: 145px;
+
+    width: 4px;
+    height: 55px;
+
+    background: #222;
+}
+
+.left-leg {
+    left: 174px;
+
+    transform: rotate(35deg);
+}
+
+.right-leg {
+    left: 200px;
+
+    transform: rotate(-35deg);
+}
+
+
+/* =========================
+   ANIMATION STATES
+========================= */
+
+.gallows.show-head .head {
+    opacity: 1;
+}
+
+.gallows.show-body .body {
+    opacity: 1;
+}
+
+.gallows.show-left-arm .left-arm {
+    opacity: 1;
+}
+
+.gallows.show-right-arm .right-arm {
+    opacity: 1;
+}
+
+.gallows.show-left-leg .left-leg {
+    opacity: 1;
+}
+
+.gallows.show-right-leg .right-leg {
+    opacity: 1;
+}
+
+
+/* =========================
+   GAME INFO
+========================= */
+
+.game-info {
+    width: 360px;
+}
+
+
+/* =========================
+   STATS
+========================= */
+
+.stats {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 60px;
+
+    margin-bottom: 30px;
+}
+
+.stats div {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+.stats span {
+    font-size: 13px;
+
+    color: #777;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+}
+
+.stats strong {
+    font-size: 26px;
+}
+
+
+/* =========================
+   WORD
+========================= */
+
+.word {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 9px;
+
+    min-height: 60px;
+
+    margin-bottom: 25px;
+}
+
+
+/* =========================
+   LETTER INPUTS
+========================= */
+
+.letter-input {
+    width: 42px;
+    height: 55px;
+
+    padding: 0;
+
+    border: none;
+
+    border-bottom: 4px solid #222;
+
+    background: transparent;
+
+    text-align: center;
+
+    font-size: 30px;
+
+    font-weight: bold;
+
+    text-transform: uppercase;
+
+    outline: none;
+
+    color: #222;
+
+    transition:
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+/* Selected input */
+
+.letter-input:focus {
+    border-bottom-color: #555;
+
+    transform: translateY(-3px);
+}
+
+
+/* Revealed clue / correct letter */
+
+.letter-input.revealed {
+    border-bottom-color: #777;
+
+    cursor: default;
+}
+
+
+/* Disabled */
+
+.letter-input:disabled {
+    opacity: 1;
+}
+
+
+/* =========================
+   MESSAGE
+========================= */
+
+.message {
+    min-height: 28px;
+
+    margin: 20px 0;
+
+    font-size: 16px;
+
+    font-weight: bold;
+}
+
+
+/* =========================
+   NEW GAME BUTTON
+========================= */
+
+.new-game {
+    padding: 12px 24px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background: #222;
+
+    color: white;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.15s ease,
+        opacity 0.15s ease;
+}
+
+.new-game:hover {
+    transform: translateY(-2px);
+
+    opacity: 0.85;
+}
+
+.new-game:active {
+    transform: translateY(0);
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+    body {
+        padding: 20px;
+    }
+
+    .game {
+        flex-direction: column;
+
+        gap: 10px;
+    }
+
+    .hangman-container {
+        height: 280px;
+    }
+
+    .game-info {
+        width: 100%;
+    }
+
+    header h1 {
+        font-size: 38px;
+    }
+
+    .word {
+        gap: 6px;
+    }
+
+    .letter-input {
+        width: 36px;
+        height: 50px;
+
+        font-size: 26px;
+    }
+}
+
+
+/* =========================
+   VERY SMALL SCREENS
+========================= */
+
+@media (max-width: 400px) {
+
+    .letter-input {
+        width: 31px;
+
+        font-size: 23px;
+    }
+
+    .stats {
+        gap: 40px;
+    }
+}

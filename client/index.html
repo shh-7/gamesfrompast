@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Project Nostalgia - Hangman</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="game-container">
+
+        <header>
+            <h1>HANGMAN</h1>
+            <p>Project Nostalgia</p>
+        </header>
+
+        <section class="game">
+
+            <!-- Hangman drawing -->
+            <div class="hangman-container">
+
+                <div class="gallows">
+
+                    <div class="beam"></div>
+                    <div class="pole"></div>
+                    <div class="base"></div>
+                    <div class="rope"></div>
+
+                    <!-- Person -->
+                    <div class="head"></div>
+                    <div class="body"></div>
+
+                    <div class="arm left-arm"></div>
+                    <div class="arm right-arm"></div>
+
+                    <div class="leg left-leg"></div>
+                    <div class="leg right-leg"></div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Game information -->
+            <div class="game-info">
+
+                <div class="stats">
+
+                    <div>
+                        <span>Lives</span>
+                        <strong id="lives">6</strong>
+                    </div>
+
+                    <div>
+                        <span>Wrong</span>
+                        <strong id="wrong">0</strong>
+                    </div>
+
+                </div>
+
+
+                <!-- Word -->
+                <div id="word" class="word"></div>
+
+
+                <!-- Game message -->
+                <p id="message" class="message">
+                    Choose a position and type a letter.
+                </p>
+
+
+                <!-- Restart -->
+                <button id="newGame" class="new-game">
+                    New Game
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="game.js"></script>
+
+</body>
+</html>
