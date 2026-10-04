@@ -1,90 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Project Nostalgia - Hangman</title>
+    <title>Project Nostalgia</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
 
-    <main class="game-container">
+    <main class="home-container">
 
-        <header>
-            <h1>HANGMAN</h1>
-            <p>Project Nostalgia</p>
+        <header class="hero">
+            <h1>PROJECT NOSTALGIA</h1>
+            <p>Childhood games. Online again.</p>
         </header>
 
-        <section class="game">
 
-            <!-- Hangman drawing -->
-            <div class="hangman-container">
+        <section class="menu">
 
-                <div class="gallows">
+            <button class="menu-card" id="gameNameButton">
+                <span class="icon">🎮</span>
 
-                    <div class="beam"></div>
-                    <div class="pole"></div>
-                    <div class="base"></div>
-                    <div class="rope"></div>
+                <span class="card-content">
+                    <strong>GAME NAME</strong>
+                    <small>Choose your player name</small>
+                </span>
 
-                    <!-- Person -->
-                    <div class="head"></div>
-                    <div class="body"></div>
-
-                    <div class="arm left-arm"></div>
-                    <div class="arm right-arm"></div>
-
-                    <div class="leg left-leg"></div>
-                    <div class="leg right-leg"></div>
-
-                </div>
-
-            </div>
+                <span class="arrow">→</span>
+            </button>
 
 
-            <!-- Game information -->
-            <div class="game-info">
+            <button class="menu-card" id="createRoomButton">
+                <span class="icon">🏠</span>
 
-                <div class="stats">
+                <span class="card-content">
+                    <strong>CREATE ROOM</strong>
+                    <small>Start a new game</small>
+                </span>
 
-                    <div>
-                        <span>Lives</span>
-                        <strong id="lives">6</strong>
-                    </div>
-
-                    <div>
-                        <span>Wrong</span>
-                        <strong id="wrong">0</strong>
-                    </div>
-
-                </div>
+                <span class="arrow">→</span>
+            </button>
 
 
-                <!-- Word -->
-                <div id="word" class="word"></div>
+            <button class="menu-card" id="joinRoomButton">
+                <span class="icon">🔗</span>
 
+                <span class="card-content">
+                    <strong>JOIN ROOM</strong>
+                    <small>Enter a friend's room</small>
+                </span>
 
-                <!-- Game message -->
-                <p id="message" class="message">
-                    Choose a position and type a letter.
-                </p>
-
-
-                <!-- Restart -->
-                <button id="newGame" class="new-game">
-                    New Game
-                </button>
-
-            </div>
+                <span class="arrow">→</span>
+            </button>
 
         </section>
 
+
+        <footer>
+            <p>Project Nostalgia © 2026</p>
+        </footer>
+
     </main>
 
-    <script src="game.js"></script>
+
+    <script src="/socket.io/socket.io.js"></script>
+<script src="index.js"></script>
 
 </body>
+
 </html>

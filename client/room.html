@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Project Nostalgia - Room</title>
+
+    <link rel="stylesheet" href="room.css">
+</head>
+
+<body>
+
+    <main class="room-container">
+
+        <header>
+            <p>PROJECT NOSTALGIA</p>
+            <h1>GAME ROOM</h1>
+        </header>
+
+
+        <section class="room-code-section">
+
+            <span>ROOM CODE</span>
+
+            <h2 id="roomCode">-----</h2>
+
+            <button id="copyButton">
+                COPY CODE
+            </button>
+
+        </section>
+
+
+        <section class="players-section">
+
+            <h3>PLAYERS</h3>
+
+            <div id="players"></div>
+
+        </section>
+
+
+        <p id="status" class="status">
+            Connecting...
+        </p>
+
+
+        <button id="startButton" class="start-button" disabled>
+            WAITING FOR PLAYER
+        </button>
+
+    </main>
+
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="room.js"></script>
+
+</body>
+
+</html>
